@@ -13,7 +13,10 @@ selectColor.setAttribute('id', 'color');
 selectColor.setAttribute('name', 'color');
 
 const resetGrid = document.createElement ('button');
-resetGrid.textContent = 'Reiniciar';
+resetGrid.textContent = 'Reiniciar Grilla';
+
+const borrar = document.createElement ('button');
+borrar.textContent = 'Borrar';
 
 const title = document.createElement ('h1');
 title.textContent = 'Etch-a-Sketch';
@@ -34,6 +37,7 @@ body.appendChild(buttonsContainer);
 body.insertBefore(buttonsContainer, container);
 buttonsContainer.appendChild(selectSize);
 buttonsContainer.appendChild(selectColor);
+buttonsContainer.appendChild(borrar);
 buttonsContainer.appendChild(resetGrid);
 
 var eliminarElementos;
@@ -63,6 +67,14 @@ const agregarListeners = () => {
     });
 };
 
+const borrarColores = () => {
+    container.childNodes.forEach ((elemento) => {
+        elemento.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = '#FFFFFF';
+        });
+    });
+};
+
 
 selectSize.addEventListener('click', () => {
     const tamaño = prompt('Ingrese el tamaño de la grilla');
@@ -75,6 +87,7 @@ selectSize.addEventListener('click', () => {
 let colorSeleccionado;
 selectColor.addEventListener('input', () => {
     colorSeleccionado = selectColor.value;
+    agregarListeners();
 })
 
 resetGrid.addEventListener('click', () => {
@@ -83,5 +96,7 @@ resetGrid.addEventListener('click', () => {
     });
 });
 
-
+borrar.addEventListener('click', () => {
+    borrarColores();
+});
 
