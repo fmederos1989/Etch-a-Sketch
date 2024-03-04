@@ -61,6 +61,7 @@ function agregarFilas(cantidad){
             filas.appendChild(columnas);
         }
         eliminarElementos = document.querySelectorAll('.fila')
+        borrarFilas = document.querySelectorAll('.fila');
     }}
     
     const agregarListeners = () => {
@@ -80,9 +81,8 @@ function agregarFilas(cantidad){
     };
 
     resetGrilla.addEventListener('click', () => {
-        borrarFilas = document.querySelectorAll('.filas');
         borrarFilas.forEach(elemento => {
-            container.remove(elemento)
+            container.removeChild(elemento)
         });
         selectSize.disabled = false;
     });
@@ -110,9 +110,6 @@ function agregarFilas(cantidad){
         eliminarElementos.forEach(elemento => {
             elemento.style.backgroundColor = '#FFFFFF';
             console.log(eliminarElementos);
-            // console.log(elemento);
-        // agregarFilas(tamaño);
-        // agregarListeners();
     });
 });
 
